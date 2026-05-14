@@ -1,0 +1,224 @@
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+        .ct-root * { box-sizing: border-box; }
+        .ct-root {
+          font-family: 'DM Sans', sans-serif;
+          background: #f0f6f8;
+          min-height: 100vh;
+        }
+
+        /* ── HERO ── */
+        .ct-hero {
+          background: linear-gradient(135deg, #0c4a6e 0%, #0f766e 60%, #115e59 100%);
+          padding: 5rem 1.5rem 6.5rem;
+          text-align: center; position: relative; overflow: hidden;
+        }
+        .ct-hero::before {
+          content: '';
+          position: absolute; inset: 0; opacity: 0.04;
+          background-image:
+            linear-gradient(rgba(255,255,255,1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px);
+          background-size: 48px 48px;
+        }
+        .ct-hero-inner { position: relative; z-index: 1; max-width: 620px; margin: 0 auto; }
+        .ct-pill {
+          display: inline-flex; align-items: center; gap: 6px;
+          background: rgba(255,255,255,0.12);
+          border: 1px solid rgba(255,255,255,0.2);
+          border-radius: 100px; padding: 0.35rem 1rem;
+          font-size: 0.78rem; font-weight: 500;
+          color: rgba(255,255,255,0.9);
+          letter-spacing: 0.06em; text-transform: uppercase;
+          margin-bottom: 1.5rem;
+          animation: fadeDown 0.5s ease both;
+        }
+        .ct-pill-dot { width: 6px; height: 6px; background: #34d399; border-radius: 50%; }
+        .ct-hero h1 {
+          font-family: 'Playfair Display', serif;
+          font-size: clamp(2.4rem, 6vw, 3.6rem);
+          font-weight: 800; color: white;
+          line-height: 1.1; letter-spacing: -0.02em;
+          margin: 0 0 1.1rem;
+          animation: fadeDown 0.5s 0.1s ease both;
+        }
+        .ct-hero h1 em { font-style: italic; color: #6ee7b7; }
+        .ct-hero p {
+          font-size: 1.05rem; color: rgba(255,255,255,0.72);
+          line-height: 1.75; font-weight: 300; margin: 0;
+          animation: fadeDown 0.5s 0.2s ease both;
+        }
+        @keyframes fadeDown {
+          from { opacity: 0; transform: translateY(-14px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── CONTACT METHODS ── */
+        .ct-methods {
+          max-width: 900px; margin: -2.5rem auto 0;
+          padding: 0 1.5rem; position: relative; z-index: 2;
+          display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+          animation: fadeUp 0.6s 0.3s ease both;
+        }
+        @media (max-width: 620px) { .ct-methods { grid-template-columns: 1fr; } }
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        .ct-method {
+          background: white; border-radius: 18px;
+          padding: 1.5rem 1.25rem;
+          box-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04);
+          display: flex; flex-direction: column; gap: 0.6rem;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .ct-method:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); }
+        .ct-method-icon {
+          width: 46px; height: 46px; border-radius: 12px;
+          display: flex; align-items: center; justify-content: center;
+        }
+        .ct-method-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #94a3b8; }
+        .ct-method-val { font-weight: 600; font-size: 0.95rem; color: #1e293b; }
+        .ct-method-sub { font-size: 0.8rem; color: #94a3b8; }
+
+        /* ── MAIN CONTENT ── */
+        .ct-main {
+          max-width: 900px; margin: 3.5rem auto 4rem;
+          padding: 0 1.5rem;
+          display: grid; grid-template-columns: 1fr 1.4fr; gap: 24px;
+        }
+        @media (max-width: 680px) { .ct-main { grid-template-columns: 1fr; } }
+
+        /* Info panel */
+        .ct-info {
+          background: linear-gradient(150deg, #0c4a6e 0%, #0f766e 100%);
+          border-radius: 20px; padding: 2.25rem 2rem;
+          position: relative; overflow: hidden; color: white;
+        }
+        .ct-info::after {
+          content: '+'; position: absolute; right: -0.5rem; bottom: -2rem;
+          font-size: 160px; color: rgba(255,255,255,0.04);
+          font-family: 'Playfair Display', serif; line-height: 1;
+        }
+        .ct-info-eyebrow {
+          font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em;
+          text-transform: uppercase; color: #6ee7b7; margin-bottom: 0.6rem;
+        }
+        .ct-info h2 {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.55rem; font-weight: 700;
+          color: white; margin: 0 0 0.75rem; letter-spacing: -0.01em;
+        }
+        .ct-info p {
+          font-size: 0.88rem; color: rgba(255,255,255,0.68);
+          line-height: 1.7; font-weight: 300; margin: 0 0 2rem;
+        }
+
+        .ct-faq { display: flex; flex-direction: column; gap: 10px; }
+        .ct-faq-item {
+          background: rgba(255,255,255,0.08);
+          border-radius: 10px; padding: 0.9rem 1rem;
+          border: 1px solid rgba(255,255,255,0.12);
+        }
+        .ct-faq-q { font-size: 0.83rem; font-weight: 600; color: white; margin-bottom: 0.3rem; }
+        .ct-faq-a { font-size: 0.8rem; color: rgba(255,255,255,0.62); line-height: 1.55; }
+
+        /* Form card */
+        .ct-form-card {
+          background: white; border-radius: 20px;
+          padding: 2.25rem 2rem;
+          box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.03);
+        }
+        .ct-form-title {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.4rem; font-weight: 700;
+          color: #0c4a6e; margin: 0 0 0.3rem;
+        }
+        .ct-form-sub { font-size: 0.85rem; color: #94a3b8; margin: 0 0 1.75rem; }
+
+        /* Fields */
+        .ct-field { margin-bottom: 14px; }
+        .ct-field-wrap { position: relative; }
+        .ct-input {
+          width: 100%; padding: 0.82rem 1rem 0.82rem 2.8rem;
+          border: 1.5px solid #e2e8f0; border-radius: 11px;
+          font-family: inherit; font-size: 0.9rem; color: #1e293b;
+          background: #f8fafc; transition: all 0.2s; outline: none;
+        }
+        .ct-input::placeholder { color: #b0bec5; }
+        .ct-input:focus {
+          border-color: #0f766e; background: white;
+          box-shadow: 0 0 0 3px rgba(15,118,110,0.1);
+        }
+        .ct-select {
+          width: 100%; padding: 0.82rem 2.5rem 0.82rem 2.8rem;
+          border: 1.5px solid #e2e8f0; border-radius: 11px;
+          font-family: inherit; font-size: 0.9rem; color: #1e293b;
+          background: #f8fafc; transition: all 0.2s; outline: none;
+          appearance: none; cursor: pointer;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+          background-repeat: no-repeat; background-position: right 0.85rem center; background-size: 16px;
+        }
+        .ct-select:focus { border-color: #0f766e; background-color: white; box-shadow: 0 0 0 3px rgba(15,118,110,0.1); }
+        .ct-textarea {
+          width: 100%; padding: 0.82rem 1rem 0.82rem 2.8rem;
+          border: 1.5px solid #e2e8f0; border-radius: 11px;
+          font-family: inherit; font-size: 0.9rem; color: #1e293b;
+          background: #f8fafc; transition: all 0.2s; outline: none;
+          resize: vertical; min-height: 110px;
+        }
+        .ct-textarea::placeholder { color: #b0bec5; }
+        .ct-textarea:focus { border-color: #0f766e; background: white; box-shadow: 0 0 0 3px rgba(15,118,110,0.1); }
+        .ct-field-icon {
+          position: absolute; left: 0.85rem; top: 50%;
+          transform: translateY(-50%); color: #94a3b8;
+          transition: color 0.2s; pointer-events: none;
+          display: flex; align-items: center;
+        }
+        .ct-field-icon.focused { color: #0f766e; }
+        .ct-textarea-icon {
+          position: absolute; left: 0.85rem; top: 0.88rem;
+          color: #94a3b8; transition: color 0.2s; pointer-events: none;
+        }
+        .ct-textarea-icon.focused { color: #0f766e; }
+
+        .ct-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 400px) { .ct-row { grid-template-columns: 1fr; } }
+
+        /* Submit */
+        .ct-submit {
+          width: 100%; padding: 0.95rem; border: none; border-radius: 12px;
+          background: linear-gradient(135deg, #0f766e 0%, #0e7490 100%);
+          color: white; font-family: inherit; font-size: 0.95rem; font-weight: 600;
+          cursor: pointer; transition: all 0.2s;
+          display: flex; align-items: center; justify-content: center; gap: 8px;
+          box-shadow: 0 4px 16px rgba(15,118,110,0.3); margin-top: 6px;
+        }
+        .ct-submit:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 22px rgba(15,118,110,0.38); }
+        .ct-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+        .ct-spinner {
+          width: 18px; height: 18px;
+          border: 2px solid rgba(255,255,255,0.35); border-top-color: white;
+          border-radius: 50%; animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Success */
+        .ct-success {
+          display: flex; flex-direction: column; align-items: center;
+          justify-content: center; padding: 3rem 1rem; text-align: center;
+          gap: 1rem; animation: fadeUp 0.4s ease both;
+        }
+        .ct-success-icon {
+          width: 64px; height: 64px; border-radius: 50%;
+          background: linear-gradient(135deg, #f0fdfa, #d1fae5);
+          display: flex; align-items: center; justify-content: center;
+          color: #0f766e;
+        }
+        .ct-success h3 {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.4rem; color: #0c4a6e; margin: 0;
+        }
+        .ct-success p { color: #64748b; font-size: 0.9rem; margin: 0; line-height: 1.6; max-width: 280px; }
+      
+
