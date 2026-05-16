@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import path from "path";
+import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import appointmentRoutes from "./routes/appointmentRoutes.js";
@@ -11,7 +12,11 @@ import adminRoutes from "./routes/adminRoutes.js";
 import doctorRoutes from "./routes/doctorRoutes.js";
 import doctorModuleRoutes from "./routes/doctorModuleRoutes.js";
 
-connectDB();
+dotenv.config();
+
+connectDB().catch((error) => {
+  console.error("Initial DB connection failed:", error.message);
+});
 
 const app = express();
 
@@ -50,6 +55,11 @@ app.get("/", (req, res) => {
       </body>
     </html>
   `);
+});
+
+app.use((err, req, res, next) => {
+  console.error("Unhandled server error:", err.message);
+  res.status(500).json({ message: "Internal server error" });
 });
 
 export default app;
