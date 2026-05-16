@@ -13,7 +13,8 @@ import Setting from "./models/Setting.js";
 dotenv.config();
 
 const connectDB = async () => {
-  await mongoose.connect(process.env.MONGO_URI);
+  const mongoUri = process.env.ATLASDB_URL || process.env.MONGO_URI;
+  await mongoose.connect(mongoUri);
 };
 
 const doctorSeeds = [

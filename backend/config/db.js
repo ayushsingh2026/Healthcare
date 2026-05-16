@@ -2,7 +2,8 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI);
+    const mongoUri = process.env.ATLASDB_URL || process.env.MONGO_URI;
+    await mongoose.connect(mongoUri);
 
     console.log("MongoDB Connected");
   } catch (error) {
