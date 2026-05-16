@@ -67,6 +67,28 @@ cd frontend
 npm run dev
 ```
 
+## Deploy (Frontend Vercel + Backend Railway)
+
+Backend (Railway):
+```env
+ATLASDB_URL=your_mongodb_atlas_uri
+JWT_SECRET=your_jwt_secret
+PORT=5000
+```
+- Service root: `backend`
+- Start command: `npm start`
+- Health check URL: `/api/health`
+
+Frontend (Vercel):
+```env
+VITE_API_BASE_URL=https://<your-railway-backend-domain>/api
+```
+- Project root: `frontend`
+- Build command: `npm run build`
+- Output directory: `dist`
+
+After backend deploy, update frontend env var with Railway domain and redeploy frontend.
+
 ## Seed Dummy Data
 
 ```bash
