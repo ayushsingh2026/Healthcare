@@ -5,6 +5,7 @@ import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import api from "../../services/api";
+import { API_BASE_URL } from "../../utils/constants";
 
 
 import '../../css/Login.css';
@@ -81,7 +82,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     if (apiOnline === false) {
-      toast.error("Backend is offline. Start backend server and try again.");
+      toast.error("Backend is offline. Please check the deployed API and try again.");
       return;
     }
     if (!email || !password) {
@@ -145,7 +146,7 @@ const Login = () => {
             ) : (
               <div className="status-banner status-offline">
                 <span className="status-dot dot-offline" />
-                Server offline — please start backend on port 5000
+                Server offline - unable to reach {API_BASE_URL}
                 <button className="retry-btn" type="button" onClick={checkApiHealth}>
                   Retry
                 </button>
@@ -275,5 +276,6 @@ const Login = () => {
 };
 
 export default Login;
+
 
 
